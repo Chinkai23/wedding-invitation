@@ -437,7 +437,8 @@
                 min-height: 1200px
             }
 body {
-    background-attachment: scroll; 
+    background-position: center top;
+    background-size: contain; /* 或者试试 contain，能缩小图片 */
   }
             
             .countdown {
@@ -448,14 +449,7 @@ body {
                 font-size: 16px;
             }
 
-            .scroll-icon {
-                width: 80px;
-                height: 80px;
-                border: none;
-                background-image: url('finger-icon.png');
-                background-size: cover;
-                animation: scroll-animation 2s infinite;
-            }
+        
 
             .scroll-icon::before {
                 display: none;
