@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK•JY WEDDING PARTY</title>
+    <meta name="description" content="Join us for the CK•JY Wedding Party on October 3, 2025, at Warisan Villa Muar. Celebrate love, joy, and happiness with us!">
+    <meta name="keywords" content="wedding, party, CK•JY, Warisan Villa Muar, buffet, live band">
+    <meta name="author" content="Your Name">
+    <link rel="icon" href="logo-01.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="logo-01.png">
+    <link href="https://fonts.googleapis.com/css2?family=Optima&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Platinus+Script+Pro+Bold&display=swap" rel="stylesheet">
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Optima', sans-serif;
+            background-color: #FAF6F2;
+            text-align: center;
+            margin: 0;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Logo 容器 */
+        .logo-container {
+    background-color: #FAF6F2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+.logo {
+    width: 150px;
+    margin-top: 10px;
+    position: relative;
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+
+        /* Hero 部分 */
+        .hero {
+            position: relative;
+            margin-top: -230px;
+            height: 100vh;
+            min-height: -webkit-fill-available;
+            max-height: 100dvh;
+            overflow: hidden;   
+            width: 100%;
+            background: url('your-image.jpg') center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+ 
+
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .countdown {
+            position: relative;
+            z-index: 2;
+            font-size: 32px;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .countdown-title {
+            position: relative;
+            z-index: 2;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #faebd7;
+        }
+
+        /* 内容部分 */
+        .content {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Optima', sans-serif;
+            color: #8B5E3C;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: normal;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+
+        p img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* 信息部分 */
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-item {
+            text-align: center;
+            width: 22%;
+            margin-bottom: 30px;
+        }
+
+        .info-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        .info-item p {
+            font-size: 20px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        /* 日期 部分 */
+        .wedding-party-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 0px 0;
+        }
+
+        .date-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0px 0;
+        }
+
+        /* Google 地图部分 */
+        .map-section {
+            width: 100%;
+            padding: 5px 0;
+            background-color: #a48374;
+            
+        }
+        .venue-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin: 0px 0;
+        }
+
+        .map-title {
+            font-family: 'Optima', sans-serif;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: normal;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 按钮样式 */
+        .map-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.waze-button{
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px; 
+    font-family: 'Optima', sans-serif;
+    font-size: 16px;
+    color: #a48374; 
+    background-color: #ffffff; 
+    border: 2px solid transparent; 
+    width: 200px;
+    text-align: center; 
+    transition: all 0.3s ease;
+}
+
+.waze-button:hover {
+    background-color: transparent; 
+    color: #ffffff; 
+    border: 2px solid #ffffff; 
+}
+
+.google-map-button{
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px; 
+    font-family: 'Optima', sans-serif;
+    font-size: 16px;
+    color: #ffffff; 
+    background-color: transparent; 
+    border: 2px solid #ffffff; 
+    width: 200px;
+    text-align: center; 
+    transition: all 0.3s ease;
+}
+
+.google-map-button:hover {
+    color: #8b5e3c; 
+    background-color: #ffffff; 
+    border: 2px solid transparent; 
+}
+
+        /* Scroll Down 动画样式 */
+        .scroll-down {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .scroll-icon {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #ffffff;
+            border-radius: 25px;
+            position: relative;
+            animation: scroll-animation 2s infinite;
+        }
+
+        .scroll-icon::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: scroll-ball 2s infinite;
+        }
+
+        @keyframes scroll-animation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes scroll-ball {
+            0% { top: 10px; }
+            50% { top: 20px; }
+            100% { top: 10px; }
+        }
+
+        .Fourimage-title{
+            font-family: 'Optima', sans-serif;
+            color: #8B5E3C;
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: normal;
+        }
+        /* 4 张图部分 */
+        .photo-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .photo-item {
+            width: 23%;
+            aspect-ratio: 4 / 3;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .photo-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .photo-item:hover .photo-inner {
+            transform: rotateY(180deg);
+        }
+
+        .photo-front, .photo-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .photo-front {
+            background-color: black;
+        }
+
+        .photo-front img, .photo-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-text {
+            font-family: 'Optima', sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .photo-back {
+            transform: rotateY(180deg);
+        }
+
+        .footer {
+            width: 100%;
+        margin-top: 60px;
+        overflow: hidden;
+    }
+    
+    .footer-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+ 
+    /* Header 图片样式*/
+.header-image {
+    position: relative; 
+    z-index: 10;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 0px; 
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 图片覆盖整个区域 */
+    object-position: center;
+}
+
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .header-image {
+        margin-top: 0px;
+    }
+            .hero {
+                font-size: 45px;
+                min-height: 1200px
+            }
+
+            .countdown {
+                font-size: 24px;
+            }
+
+            .countdown-title {
+                font-size: 16px;
+            }
+
+            .scroll-icon {
+                width: 80px;
+                height: 80px;
+                border: none;
+                background-image: url('finger-icon.png');
+                background-size: cover;
+                animation: scroll-animation 2s infinite;
+            }
+
+            .scroll-icon::before {
+                display: none;
+            }
+
+            .photo-item {
+                width: 100%;
+                aspect-ratio: 6 / 4;
+            }
+            .map-buttons {
+        flex-direction: column; /* 按钮垂直排列 */
+        align-items: center; /* 按钮居中 */
+        gap: 10px; /* 按钮之间的间距 */
+    }
+
+    .waze-button,
+    .google-map-button {
+        width: 80%; /* 手机屏幕上按钮宽度占满80% */
+        max-width: 250px; /* 最大宽度限制 */
+    }
+    .venue-image {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+        }
+
+    }
+    
+        @media (max-width: 480px) {
+            .hero {
+                font-size: 28px;
+                min-height: 1100px;
+            }
+
+            .countdown {
+                font-size: 23px;
+            }
+
+            .countdown-title {
+                font-size: 18px;
+            }
+        }
+
+        /* 花瓣飘落效果 */
+        .falling-petal {
+            position: fixed;
+            z-index: 11;
+            top: 0;
+            background-image: url('petal.png');
+            background-size: cover;
+            opacity: 0.6;
+            transform: rotate(0deg);
+            pointer-events: none;
+            animation: fallAnimation linear infinite, fadeOut 2s linear infinite;
+        }
+
+        @keyframes fallAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(70vh) rotate(180deg);
+            }
+        }
+
+        @keyframes fadeOut {
+            80% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* 加载动画 */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FAF6F2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading">
+        <div style="width: 50px; height: 50px; border: 4px solid #8B5E3C; border-top: 4px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    </div>
+
+   
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="logo-01.png" alt="Wedding Logo" class="logo">
+    </div>
+
+    <!-- Hero 部分 -->
+    <div class="hero">
+        <div>
+            <div class="countdown-title">WEDDING PARTY COUNTDOWN</div>
+            <div class="countdown" id="countdown">Loading...</div>
+        </div>
+        <div class="scroll-down">
+            <div class="scroll-icon"></div>
+        </div>
+    </div>
+
+    <!-- 内容部分 -->
+    <div class="content">
+        <img src="WeddingParty2-01.png" alt="Wedding Buffet Party" class="wedding-party-image">
+        <img src="Date-01.png" alt="Save the Date" class="date-image">
+    </div>
+
+    <!-- Google 地图部分 -->
+    <div class="map-section">
+        <img src="Venue-01.png" alt="Venue" class="venue-image"> 
+        <h3 class="map-title">WARISAN VILLA MUAR</h3>
+             
+        <!-- 按钮部分 -->
+        <div class="map-buttons">
+            <a class="waze-button" href="https://waze.com/ul/hw22gtbq2n" target="_blank">WAZE</a>
+            <a class="google-map-button" href="https://maps.app.goo.gl/RpR72MbLqVw44acD6" target="_blank">GOOGLE MAP</a>
+        </div>
+    </div>
+        <div class="map-container">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.123456789012!2d102.5662994!3d2.0228339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1b9a7a8f921e1%3A0x9a1ced8e7a3f0b4c!2sWarisan%27s%20Villa!5e0!3m2!1sen!2smy!4v1698765432101!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    
+   <br>
+        <h2 class="Fourimage-title">READY FOR YOU</h2>
+
+    <!-- 4 张图部分 -->
+    <div class="photo-section">
+        <div class="photo-item">
+            <div class="photo-inner">
+                <div class="photo-front">
+                    <img src="buffet.jpg" alt="Buffet">
+                    <div class="overlay"></div>
+                    <span class="photo-text">BUFFET CATERING</span>
+                </div>
+                <div class="photo-back">
+                    <img src="buffet.jpg" alt="Buffet">
+                </div>
+            </div>
+        </div>
+        <div class="photo-item">
+            <div class="photo-inner">
+                <div class="photo-front">
+                    <img src="beer.jpg" alt="Beer">
+                    <div class="overlay"></div>
+                    <span class="photo-text">DRAUGHT BEER</span>
+                </div>
+                <div class="photo-back">
+                    <img src="beer.jpg" alt="Beer">
+                </div>
+            </div>
+        </div>
+        <div class="photo-item">
+            <div class="photo-inner">
+                <div class="photo-front">
+                    <img src="liveband.jpg" alt="Live Band">
+                    <div class="overlay"></div>
+                    <span class="photo-text">LIVEBAND PERFORMANCE</span>
+                </div>
+                <div class="photo-back">
+                    <img src="liveband.jpg" alt="Live Band">
+                </div>
+            </div>
+        </div>
+        <div class="photo-item">
+            <div class="photo-inner">
+                <div class="photo-front">
+                    <img src="icecream.jpg" alt="Ice Cream">
+                    <div class="overlay"></div>
+                    <span class="photo-text">DESSERTS & SNACKS</span>
+                </div>
+                <div class="photo-back">
+                    <img src="icecream.jpg" alt="Ice Cream">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="Footer-01.png" alt="Wedding Footer" class="footer-image">
+    </div>
+    
+
+    <script>
+        // 倒计时功能
+        function updateCountdown() {
+            const eventDate = new Date("October 3, 2025 19:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById("countdown").innerText = "The party has started! 🎉";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 图片点击翻转功能
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('clicked');
+            });
+        });
+
+        // 页面加载完成后显示内容
+        window.addEventListener("load", function () {
+            document.getElementById("loading").style.display = "none";
+            document.body.classList.add("loaded");
+        });
+
+        // 花瓣飘落效果
+        document.addEventListener("DOMContentLoaded", function () {
+            const maxPetals = 20;
+            let currentPetals = 0;
+
+            function createPetal() {
+                if (currentPetals >= maxPetals) return;
+
+                const petal = document.createElement("div");
+                petal.classList.add("falling-petal");
+                document.body.appendChild(petal);
+                currentPetals++;
+
+                const size = Math.random() * 15 + 15;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                petal.style.left = `${Math.random() * 100}vw`;
+                petal.style.opacity = Math.random() * 0.6 + 0.4;
+                const rotate = Math.random() * 360;
+                petal.style.transform = `rotate(${rotate}deg)`;
+                const duration = Math.random() * 7 + 8;
+                petal.style.animationDuration = `${duration}s`;
+
+                setTimeout(() => {
+                    petal.remove();
+                    currentPetals--;
+                }, duration * 1000);
+            }
+
+            setInterval(createPetal, 1500);
+        });
+
+
+    </script>
+</body>
+</html>
