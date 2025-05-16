@@ -63,7 +63,7 @@
             max-height: 100dvh;
             overflow: hidden;   
             width: 100%;
-            background:url('wedding.jpg') center/cover no-repeat fixed;
+            background: url('wedding.jpg') center center no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -439,7 +439,6 @@
     background-size: contain;
     background-attachment: scroll;
   }
-  }
             
             .countdown {
                 font-size: 24px;
@@ -448,8 +447,15 @@
             .countdown-title {
                 font-size: 16px;
             }
-
-        
+            
+.scroll-icon {
+                width: 80px;
+                height: 80px;
+                border: none;
+                background-image: url('finger-icon.png');
+                background-size: cover;
+                animation: scroll-animation 2s infinite;
+            }
 
             .scroll-icon::before {
                 display: none;
