@@ -55,36 +55,27 @@
 
 
         /* Hero 部分 */
-        .hero {
-            position: relative;
-            margin-top: -230px;
-            height: 100vh;
-            min-height: -webkit-fill-available;
-            max-height: 100dvh;
-            overflow: hidden;   
-            width: 100%;
-            background: url('wedding.jpg') center/cover no-repeat fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
- 
+       .hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+}
 
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
+.hero-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background:url('wedding.jpg') center center / cover no-repeat;
+  z-index: -1;
+  transform: translateY(0);
+  will-change: transform;
+}
 
         .countdown {
             position: relative;
@@ -278,49 +269,6 @@
     border: 2px solid transparent; 
 }
 
-        /* Scroll Down 动画样式 */
-        .scroll-down {
-            position: absolute;
-            bottom: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 10;
-        }
-
-        .scroll-icon {
-            width: 30px;
-            height: 50px;
-            border: 2px solid #ffffff;
-            border-radius: 25px;
-            position: relative;
-            animation: scroll-animation 2s infinite;
-        }
-
-        .scroll-icon::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 8px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            animation: scroll-ball 2s infinite;
-        }
-
-        @keyframes scroll-animation {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes scroll-ball {
-            0% { top: 10px; }
-            50% { top: 20px; }
-            100% { top: 10px; }
-        }
 
         .Fourimage-title{
             font-family: 'Optima', sans-serif;
@@ -442,6 +390,7 @@
                 min-height: 1200px
             }
 .hero {
+    background-size: cover;
     background-attachment: scroll;
   }
             
@@ -453,19 +402,6 @@
                 font-size: 16px;
             }
             
-.scroll-icon {
-                width: 80px;
-                height: 80px;
-                border: none;
-                background-image: url('finger-icon.png');
-                background-size: cover;
-                animation: scroll-animation 2s infinite;
-            }
-
-            .scroll-icon::before {
-                display: none;
-            }
-
             .photo-item {
                 width: 100%;
                 aspect-ratio: 6 / 4;
@@ -574,13 +510,12 @@
 
     <!-- Hero 部分 -->
     <div class="hero">
+         <div class="hero-bg"></div>
         <div>
             <div class="countdown-title">WEDDING PARTY COUNTDOWN</div>
             <div class="countdown" id="countdown">Loading...</div>
         </div>
-        <div class="scroll-down">
-            <div class="scroll-icon"></div>
-        </div>
+        
     </div>
 
     <!-- 内容部分 -->
@@ -728,6 +663,12 @@
 
             setInterval(createPetal, 1500);
         });
+
+      window.addEventListener('scroll', function () {
+    const scrollY = window.scrollY;
+    const bg = document.querySelector('.hero-bg');
+    bg.style.transform = `translateY(${scrollY * 0.5}px)`;
+  });
 
 
     </script>
