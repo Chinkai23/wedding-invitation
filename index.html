@@ -112,6 +112,50 @@
             color: #faebd7;
         }
 
+          /* Scroll Down 动画样式 */
+        .scroll-down {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .scroll-icon {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #ffffff;
+            border-radius: 25px;
+            position: relative;
+            animation: scroll-animation 2s infinite;
+        }
+
+        .scroll-icon::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: scroll-ball 2s infinite;
+        }
+
+        @keyframes scroll-animation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes scroll-ball {
+            0% { top: 10px; }
+            50% { top: 20px; }
+            100% { top: 10px; }
+        }
+        
         /* 内容部分 */
         .content {
             padding: 60px 20px;
@@ -409,6 +453,19 @@
             .countdown-title {
                 font-size: 16px;
             }
+
+            .scroll-icon {
+                width: 80px;
+                height: 80px;
+                border: none;
+                background-image: url('finger-icon.png');
+                background-size: cover;
+                animation: scroll-animation 2s infinite;
+            }
+
+            .scroll-icon::before {
+                display: none;
+            }
             
             .photo-item {
                 width: 100%;
@@ -522,7 +579,9 @@
             <div class="countdown-title">WEDDING PARTY COUNTDOWN</div>
             <div class="countdown" id="countdown">Loading...</div>
         </div>
-        
+        <div class="scroll-down">
+            <div class="scroll-icon"></div>
+        </div>
     </div>
 
     <!-- 内容部分 -->
