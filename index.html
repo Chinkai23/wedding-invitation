@@ -321,6 +321,90 @@
     border: 2px solid transparent; 
 }
 
+.carousel-container {
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-behavior: auto;
+  padding:25px 0;
+  position: relative;
+  perspective: 1000px;
+
+  /* 🚫 隐藏滚动条 */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 100px;
+  flex-wrap: nowrap;
+}
+
+.carousel-item {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel title{
+    font-family: 'Optima', sans-serif;
+            color: #8B5E3C;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: normal;
+}
+
+.hero2 {
+            position: relative;
+            height: 70vh;
+            min-height: -webkit-fill-available;
+            max-height: 100dvh;
+            overflow: hidden;   
+            width: 100%;
+            background: url('wedding2.jpg') center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+ 
+
+
+        .hero2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .calender{
+            position: relative;
+            z-index: 2;
+        }
+
+        .calender-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            margin: 0px 0;
+        }
 
         .Fourimage-title{
             font-family: 'Optima', sans-serif;
@@ -587,7 +671,7 @@
     <!-- 内容部分 -->
     <div class="content">
         <img src="WeddingParty2-01.png" alt="Wedding Buffet Party" class="wedding-party-image">
-        <img src="Date-01.png" alt="Save the Date" class="date-image">
+        <img src="Date-01.png" alt="date" class="date-image">
     </div>
 
     <!-- Google 地图部分 -->
@@ -604,8 +688,32 @@
         <div class="map-container">
                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.123456789012!2d102.5662994!3d2.0228339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1b9a7a8f921e1%3A0x9a1ced8e7a3f0b4c!2sWarisan%27s%20Villa!5e0!3m2!1sen!2smy!4v1698765432101!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
     </div>
+    <br>
+    <h2 class="carousel title">-CHIN KAI & JIE YING-</h2>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+          <img src="img1.jpg" class="carousel-item" />
+          <img src="img2.jpg" class="carousel-item" />
+          <img src="img3.jpg" class="carousel-item" />
+          <img src="img4.jpg" class="carousel-item" />
+          <img src="img5.jpg" class="carousel-item" />
+          <img src="img6.jpg" class="carousel-item" />
+          <img src="img7.jpg" class="carousel-item" />
+          <img src="img8.jpg" class="carousel-item" />
+          <img src="img9.jpg" class="carousel-item" />
+          <img src="img10.jpg" class="carousel-item" />
+        </div>
+      </div>
     
-   <br>
+      <div class="hero2">
+        <div>
+           <div class="calender">
+ <img src="calender-01.png" alt="Save the Date" class="calender-image">
+        </div>
+    </div>
+    </div>
+
         <h2 class="Fourimage-title">READY FOR YOU</h2>
 
     <!-- 4 张图部分 -->
@@ -730,6 +838,34 @@
             setInterval(createPetal, 1500);
         });
 
+    // photo gallery
+
+    const container = document.querySelector('.carousel-container');
+  const track = document.querySelector('.carousel-track');
+  const originalItems = Array.from(document.querySelectorAll('.carousel-item'));
+
+  // 克隆图片用于无缝循环
+  originalItems.forEach(item => {
+    const clone = item.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let scrollSpeed = 1;
+
+  function autoScroll() {
+    container.scrollLeft += scrollSpeed;
+
+    // 到达尾部则重设 scrollLeft
+    if (container.scrollLeft >= track.scrollWidth / 2) {
+      container.scrollLeft = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+  }
+
+  window.addEventListener("load", () => {
+    autoScroll();
+  });
 
     </script>
 </body>
